@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="maindiv">
+    <h1>Pakistan's first-ever digital census: A step in the right direction</h1>
+    <img width="100%" src="https://i.tribune.com.pk/media/images/census1683136182-0/census1683136182-0.jpg">
+    <p>Khurram Zia Khan | Updated Apr 28, 2023   </p>
+    <div id="showPara">
+    <p><strong>Whether the census is conducted manually or digitally, we in Pakistan always distrust and question its outcome.</strong> </p>
+    <p id="moreText">The 2023 digital census is a step in the right direction. The purpose of the census is to provide data for informed policy planning for the people living in particular areas so that required resources can be provided for the provision of basic necessities such as schools, hospitals, roads etc. If this data is collected manually, there is a high probability that the data will have ambiguities.</p>
+    <span id="rm" onclick="showMoreText()">Read More! </span>  
+    </div>
+</div>
+<script>
+    function showMoreText(){
+    var textshow = document.getElementById("moreText")
+        textshow.classList.toggle("active");
+}
+</script>
+<style>
+   p#moreText.active {
+    display: block;
+}
+    p#moreText {
+    display: none;
+}
+    #rm {
+    color: red;
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+    cursor: pointer;
+}
+    .maindiv {
+    max-width: 600px;
+    margin: 0 auto;
+}
+    </style>
+</body>
+</html>
