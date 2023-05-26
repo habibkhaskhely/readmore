@@ -3,50 +3,65 @@
 <head>
   <title>Read More / Read Less Example</title>
   <style>
-    .divbox {
-    max-width: 500px;
-    margin: 0 auto;
-}
     .content {
     display: none;
-}
-button#toggleBtn {
-    background: #316730;
-    color: #fff;
-    border: 0px;
-    padding: 8px 20px;
-    cursor: pointer;
 }
   </style>
 </head>
 <body>
-  <div class="divbox">
-    <h1>'Films like Rang De Basanti happen once in a while</h1>
-    <img src="https://i.tribune.com.pk/media/images/MV5BZmNkNDRmYTktN2IyZS00Yzc5LWE0ZDItZDNjZTdjYmNjZT1685005362-0/MV5BZmNkNDRmYTktN2IyZS00Yzc5LWE0ZDItZDNjZTdjYmNjZT1685005362-0.jpg" width="100%">
-    <p>Rang De Basanti, Rakeysh Omprakash Mehra's 2006 directorial, gained immense critical acclaim and left an indelible mark on the landscape of Indian cinema. This thought-provoking movie entertained audiences and offered a profound reflection on patriotism, youth activism, and the power of collective action. </p>
-    <div id="content" class="content">
-        <p>Rang De Basanti stands out as a uniquely different piece of art due to its innovative storytelling, the blending of genres, and the social and political relevance it continues to hold today. In a recent interview shared by Instant Bollywood, Atul Kulkarni, who played Lakshman Pandey and Ram Prasad Bismil spoke up about the unique nature of the film. </p>
-        <p>When asked about working on a similar project with Mehra or Aamir Khan, Kulkarni stated, "They happen once in a while. Even if the same team may come together again, may try the same thing, but we may not be able to deliver the same thing. So we have done it, and it is there to be seen, and once in a while, we all enjoy watching it together. That's it."</p>
-    </div>
-    <button onclick="toggleContent()" id="toggleBtn">Read More</button>
+  <div class="newBox">
+    <center>
+
+      <input type="text" id="input">
+      <button id="btn" onclick="more()">Add Mesage</button>
+      <p id="head" ></p><button id="show-more-btn" class="content" style="display:none">Read More!</button>
+  </center>
   </div>
   
-
+<style>
+  .newBox {
+    max-width: 400px;
+    margin: 0 auto;
+}
+</style>
   <script>
-    function toggleContent(){        
-        var showContent = document.getElementById("content");
-        var readBtn = document.getElementById("toggleBtn");
-        if(showContent.classList.contains("content")){
-            showContent.classList.remove("content");
-            showContent.classList.add("expended");
-            readBtn.textContent = "Read Less";
-        }
-        else {
-            showContent.classList.remove("expended");
-            showContent.classList.add("content");
-            readBtn.textContent = "Read More!";
-        }
-    }
+    
+          function more() {
+             var btnbox = document.getElementById("show-more-btn")
+            var inp = document.getElementById("input").value;
+            var button = document.getElementById("btn");
+            var heading = document.getElementById("head");
+                var num = inp.trim().split(' ')
+                var kap = num.splice(0 , 5)
+                heading.innerHTML = kap.join(' ')
+                btnbox.style.display="block";
+          }
+          var showtxt = document.getElementById("show-more-btn");
+                showtxt.onclick = function(e){
+                  var inp = document.getElementById("input").value;
+                    var heading = document.getElementById("head");
+                  if(showtxt.classList.contains("content")){ 
+                    showtxt.classList.remove("content");                   
+                    heading.innerHTML = inp;
+                    showtxt.innerHTML= "Read Less!"
+                  }
+                  else{
+                    var num = inp.trim().split(' ')
+                    var kap = num.splice(0 , 5);
+                    heading.innerHTML = kap.join(' ');
+                    showtxt.classList.add("content");    
+                  }
+                  
+
+                  }
+                                  
+                // showtxt.addEventListener('click', showMor)
+                // function showMor(){
+                //   alert("i m in karachi")
+                //   // var inp = document.getElementById("input").value;
+                //   // var heading = document.getElementById("head");
+                //   // heading.innerHTML=inp;
+                // }
   </script>
 </body>
 </html>
