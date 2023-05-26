@@ -11,14 +11,20 @@
 <body>
   <div class="newBox">
     <center>
-
-      <input type="text" id="input">
+		<p><input type="text" id="titlebx" placeholder="News Title "></p>
+		<p><input type="text" id="imgbx" placeholder="paste here Image URL"></p>
+      <p><input type="text" id="input" placeholder="News Description"></p>
       <button id="btn" onclick="more()">Add Mesage</button>
+	  <img width="100%" src="" id="img-id" style="display:none">
+	  <h1 id="titleshow"></h1>
       <p id="head" ></p><button id="show-more-btn" class="content" style="display:none">Read More!</button>
   </center>
   </div>
   
 <style>
+  button#btn {
+    margin-bottom: 20px;
+}
   .newBox {
     max-width: 400px;
     margin: 0 auto;
@@ -27,6 +33,10 @@
   <script>
     
           function more() {
+		  var titleshow = document.getElementById("titleshow");
+		  var imgbx = document.getElementById("imgbx").value;
+		  var imgid = document.getElementById("img-id");
+		  var titlebx = document.getElementById("titlebx").value;
              var btnbox = document.getElementById("show-more-btn")
             var inp = document.getElementById("input").value;
             var button = document.getElementById("btn");
@@ -35,6 +45,12 @@
                 var kap = num.splice(0 , 5)
                 heading.innerHTML = kap.join(' ')
                 btnbox.style.display="block";
+                localStorage.setItem("name", imgbx); 
+                imgid.src = localStorage.getItem("name"); ;
+				titleshow.innerHTML= titlebx;
+        imgid.style.display="block";
+				
+				
           }
           var showtxt = document.getElementById("show-more-btn");
                 showtxt.onclick = function(e){
